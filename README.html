@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React App Deployment Instructions</title>
+    <style>
+        body {
+            background-color: #F2F2F2;
+            font-family: Arial, sans-serif;
+            color: #333333;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #0073C6;
+            font-size: 28px;
+            margin: 0 0 20px 0;
+            padding: 10px 20px;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #D9D9D9;
+        }
+
+        h2 {
+            color: #333333;
+            font-size: 24px;
+            margin: 20px 0 10px 0;
+            padding: 0 20px;
+            border-bottom: 1px solid #D9D9D9;
+        }
+
+        h3 {
+            color: #0073C6;
+            font-size: 20px;
+            margin: 20px 0 10px 0;
+            padding: 0 20px;
+        }
+
+        p, ul, ol {
+            margin: 10px 0;
+            padding: 0 20px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        th {
+            background-color: #0073C6;
+            color: #FFFFFF;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #D9D9D9;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #D9D9D9;
+        }
+
+        .code-block {
+            background-color: #F5F5F5;
+            color: #333333;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<h2>Introduction</h2>
+<p>This document provides instructions for deploying the React app on a web server. These instructions assume that you
+    have already installed Node.js and have access to a web server.</p>
+
+<h2>Step 1: Build the App</h2>
+<p>Open a command prompt and navigate to the root directory of the React app. Run the following command to build the
+    app:</p>
+<div class="code-block">npm run build</div>
+<p>This will create a production build of the app in the <code>build</code> directory.</p>
+<img alt="Screenshot of command prompt showing 'npm run build' command" src="screenshot1.png"/>
+
+<h2>Step 2: Copy Files to Web Server</h2>
+<p>To deploy the React application, you need to copy the build files to a web server that will serve them to the users.
+    Follow these steps to copy the files to the server:</p>
+<ol>
+    <li>Open your preferred FTP client.</li>
+    <li>Connect to your web server using the provided login credentials.</li>
+    <li>Navigate to the root directory of your web server.</li>
+    <li>Create a new folder named <code>my-react-app</code> in the root directory of your web server.</li>
+    <li>Navigate to the <code>build</code> folder in the React project directory.</li>
+    <li>Select all files and folders in the <code>build</code> folder and drag them to the <code>my-react-app</code>
+        folder in your FTP client.
+    </li>
+    <li>Wait for the files to finish copying to the server.</li>
+</ol>
+
+<h2>Step 3: Test the Deployment</h2>
+<p>Now that you have deployed the React application to your web server, you can test the deployment by accessing the
+    application in a web browser. Follow these steps to test the deployment:</p>
+<ol>
+    <li>Open a web browser.</li>
+    <li>Enter the URL for your deployed React application in the address bar. For example: <code>http://example.com/my-react-app</code>.
+    </li>
+    <li>Press Enter.</li>
+    <li>The React application should load in the web browser. Verify that the application is functioning correctly and
+        that all features are working as expected.
+    </li>
+</ol>
+
+<h2>Step 4: Install Dependencies</h2>
+<p>Install the dependencies needed for the app by running the following command:</p>
+<code>npm install</code>
+
+<h2>Step 5: Run the App</h2>
+<p>To run the app, execute the following command:</p>
+<code>npm start</code>
+
+<h2>Step 6: View the App</h2>
+<p>Open a web browser and go to <code>http://localhost:3000</code> to view the app.</p>
+
+<h2>Results</h2>
+<p>The app should now be running and can be viewed at <code>http://localhost:3000</code>.</p>
+</body>
+</html>

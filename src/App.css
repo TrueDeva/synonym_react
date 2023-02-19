@@ -1,61 +1,80 @@
+/* Base styles */
+
+@import url('https://fonts.googleapis.com/css?family=Gotham:300,400,500&display=swap');
+
 body {
-    background: #F0F0F0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Gotham', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    background-color: #f0f0f0;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 40%;
     margin: 0 auto;
+    padding: 20px auto;
 }
 
 h1 {
-    color: #0077C5;
-    font-size: 48px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 30px;
+    font-size: 36px;
+    font-weight: 500;
+    color: #0077c5;
+    margin-top: 0;
 }
 
 form {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
-form button {
-    background-color: #FF8400;
-    border: none;
-    color: #FFFFFF;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
+.form-control {
+    font-size: 18px;
+    font-weight: 300;
+    color: #333333;
+    padding: 10px;
     border-radius: 4px;
+    border: 2px solid #0077c5;
+    background-color: #ffffff;
 }
 
-form button:hover {
-    background-color: #F57600;
+.form-control:focus {
+    border: 2px solid #0077c5;
+    outline: none;
 }
 
-form input {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 2px solid #0077C5;
+.no-synonyms {
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 20px;
+    color: #ff0000;
 }
 
-ul {
-    list-style-type: none;
-    margin-top: 30px;
-    padding: 0;
+.nav-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    margin-left: 10px;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
-ul li {
-    background-color: #FFFFFF;
-    border: 2px solid #0077C5;
-    color: #000000;
-    padding: 12px;
-    margin-bottom: 10px;
+
+@media (max-width: 575px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .form-control {
+        font-size: 16px;
+    }
 }
 
-.text-danger {
-    color: #FF0000;
-    font-weight: bold;
+@media (min-width: 300px) and (max-width: 500px) {
+    h1 {
+        font-size: 42px;
+    }
+
+    .form-control {
+        font-size: 20px;
+    }
 }

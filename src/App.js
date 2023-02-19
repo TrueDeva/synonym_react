@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import SynonymsList from './SynonymsList';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             setSynonyms([]);
             return;
         }
+
         const options = {
             method: 'GET',
             url: `https://wordsapiv1.p.rapidapi.com/words/${word}/synonyms`,
@@ -36,12 +38,21 @@ function App() {
             if (response.data.synonyms.length === 0) {
                 setErrorMessage('No synonyms found, try again with another word.');
                 setSynonyms([]);
-                return;
+            } else if (response.data.synonyms.length < 3) {
+                const foundSynonyms = response.data.synonyms.slice(0, 10).join(', ');
+                setErrorMessage(
+                    `"Application Requirements" 1st specification states the list must be at least 3. We have found ${response.data.synonyms.length} synonyms: ${foundSynonyms}! Tough luck :)`
+                );
+
+                setSynonyms([]);
+            } else {
+                setSynonyms(response.data.synonyms.slice(0, 10));
+                setErrorMessage('');
             }
-            setSynonyms(response.data.synonyms.slice(0, 10));
-            setErrorMessage('');
         } catch (error) {
             console.error(error);
+            setSynonyms([]);
+            setErrorMessage('No synonyms found, try again with another word.');
         }
     };
 
@@ -65,17 +76,9 @@ function App() {
                     Generate Synonyms
                 </button>
             </form>
-            {synonyms.length > 0 ? (
-                <ul>
-                    {synonyms.map((synonym) => (
-                        <li key={synonym}>{synonym}</li>
-                    ))}
-                </ul>
-            ) : (
-                word.trim() !== '' &&
-                <p className="no-synonyms"><em>No synonyms found, try again with another word.</em></p>
-            )}
+            <SynonymsList synonyms={synonyms}/>
         </div>
     );
 }
+
 export default App;
