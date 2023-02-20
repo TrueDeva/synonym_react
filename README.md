@@ -33,3 +33,85 @@ different word or phrase.
 ## Links
 
 Source code: https://github.com/TrueDeva/synonym_react
+
+# Deployment Instructions for Synonym App Server
+
+## Introduction
+
+This document outlines the steps required to set up the Synonym App server on a Ubuntu Linux machine. These instructions
+assume that you have root access to the machine and that it is already set up with basic server software, such as
+Apache2.
+
+## Prerequisites
+
+Before you begin, you should have the following installed on your Ubuntu machine:
+
+- Node.js and npm
+- Git
+
+## Procedure
+
+1. Update the package list:
+
+`sudo apt-get update`
+
+2. Install Node.js and npm:
+
+`sudo apt install nodejs npm`
+
+3. Check the Node.js version:
+
+`nodejs --version`
+
+4. You should see a version number displayed, such as
+
+`v14.21.3`.
+
+5. Add the Node.js 14.x repository:
+
+`curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -`
+
+6. Install Node.js again:
+
+`sudo apt-get install -y nodejs`
+
+7. Check the Node.js version again:
+
+`node --version`
+
+8. Navigate to the folder where the project will be placed:
+
+`cd /path/to/folder`
+
+9. Clone the Synonym App project from GitHub:
+
+`git clone https://github.com/TrueDeva/synonym_react.git`
+
+10. Navigate to the project's root folder:
+
+`cd /path/to/folder/synonym_react`
+
+11. Install the project dependencies:
+
+`npm install`
+
+12. Build the project:
+
+`npm run build`
+
+13. Stop the Apache2 server:
+
+`sudo systemctl stop apache2`
+
+14. Install the serve module globally:
+
+`sudo npm install -g serve`
+
+15. Start the serve module to serve the app on port 80:
+
+`serve -s build -l 80`
+
+## Conclusion
+
+After following these steps, the Synonym App should be up and running on your Ubuntu machine. You can access it by
+navigating to the IP address or domain name of the server in a web browser.
